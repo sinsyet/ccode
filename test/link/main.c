@@ -11,23 +11,37 @@ void link_travel(lnode ln)
 void main()
 {
 
-//	lnode node = malloc(sizeof(lnode));
-//	node->item = 3;
-//	printf("%d\n",node->item);
-	create_node(3);
+	lnode head = NULL;
+	lnode nd = create_node(&head,3);
 
-/*
-before start--
-after malloc0,3
-size:4，size2:4
-段错误 (核心已转储)
-
-*/
+	printf("%d\n",nd->item);
 	
-//	create_node(8);
-//	create_node(5);
-//	create_node(9);
-//	create_node(6);
-//	printf("size: %lu\n",size());
-//	travel_links(link_travel);
+	create_node(&head,10);
+	create_node(&head,22);
+	create_node(&head,19);
+	create_node(&head,99);
+	size_t sz = size(&head);
+	printf("size: %lu\n",sz);
+	travel_links(&head,link_travel);
+	
+	printf("------------------------------------\n");
+	lnode nd4 = search_node(&head,4);
+	if(nd4)
+	{
+		link_travel(nd4);
+	}
+	else
+	{
+		printf("nd4 is NULL\n");
+	}
+	printf("------------------------------------\n");
+	lnode nd4_2 = get_node(&head,4);
+	if(nd4_2)
+	{
+		link_travel(nd4_2);
+	}
+	else
+	{
+		printf("nd4_2 is NULL");
+	}
 }
