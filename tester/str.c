@@ -62,8 +62,6 @@ int main()
 } 
 
 char *strtok_buf; 
-int start_index;
-int end_index; 
 char* m_strtok(char s[], const char *delim)
 {
       if(s == NULL && strtok_buf == NULL)
@@ -75,8 +73,6 @@ char* m_strtok(char s[], const char *delim)
       
       if(s != NULL) {
            strtok_buf = s; 
-           start_index = -1;
-           end_index = -1; 
       }
       size_t delim_len = m_strlen(delim); 
             
